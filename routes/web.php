@@ -133,9 +133,9 @@ Route::middleware('auth')->group(function () {
     Route::get('employee-attendances', [EmployeeAttendanceController::class, 'index'])->name('employee-attendances.index');
     Route::get('employee-attendances/create', [EmployeeAttendanceController::class, 'create'])->name('employee-attendances.create');
     Route::post('employee-attendances', [EmployeeAttendanceController::class, 'store'])->name('employee-attendances.store');
-    Route::get('employee-attendances/edit/{id}', [EmployeeAttendanceController::class, 'edit'])->name('employee-attendances.edit');
-    Route::put('employee-attendances/{id}', [EmployeeAttendanceController::class, 'update'])->name('employee-attendances.update');
-    Route::delete('employee-attendances/{id}', [EmployeeAttendanceController::class, 'destroy'])->name('employee-attendances.destroy');
+    Route::get('employee-attendances/{employeeAttendance}/edit', [EmployeeAttendanceController::class, 'edit'])->name('employee-attendances.edit');
+    Route::put('employee-attendances/{employeeAttendance}', [EmployeeAttendanceController::class, 'update'])->name('employee-attendances.update');
+    Route::delete('employee-attendances/{employeeAttendance}', [EmployeeAttendanceController::class, 'destroy'])->name('employee-attendances.destroy');
 
     // Quiz routes
     Route::get('quiz', [QuizController::class, 'index'])->name('quiz.index');

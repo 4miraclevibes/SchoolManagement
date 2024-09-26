@@ -30,17 +30,17 @@
             <td>{{ $user->role->name }}</td>
             @if (Auth::user()->role->name == 'admin')
               <td>
-                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline-block;">
+                <a href="{{ route('users.edit', $user->id ?? 1000) }}" class="btn btn-warning btn-sm">Edit</a>
+                <form action="{{ route('users.destroy', $user->id ?? 1000) }}" method="POST" style="display:inline-block;">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                 </form>
-                <a href="{{ route('users.billing', $user->id) }}" class="btn btn-primary btn-sm">Billing</a>
+                <a href="{{ route('users.billing', $user->id ?? 1000) }}" class="btn btn-primary btn-sm">Billing</a>
               </td>
             @else
               <td>
-                <a href="{{ route('users.billing', $user->id) }}" class="btn btn-primary btn-sm">Billing</a>
+                <a href="{{ route('users.billing', $user->id ?? 1000) }}" class="btn btn-primary btn-sm">Billing</a>
               </td>
             @endif
           </tr>

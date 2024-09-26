@@ -47,8 +47,8 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('payments.edit', [$billing->id, $payment->id]) }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ route('payments.destroy', [$billing->id, $payment->id]) }}" method="POST" style="display:inline-block;">
+                                <a href="{{ route('payments.edit', [$billing->id ?? 1000, $payment->id ?? 1000]) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{{ route('payments.destroy', [$billing->id ?? 1000, $payment->id ?? 1000]) }}" method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>

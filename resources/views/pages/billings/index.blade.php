@@ -52,10 +52,10 @@
                             Rp {{ number_format($totalPaid, 2, ',', '.') }} / Rp {{ number_format($billing->amount, 2, ',', '.') }}
                         </td>
                         <td>
-                            <a href="{{ route('billings.edit', $billing->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="{{ route('payments.index', $billing->id) }}" class="btn btn-info btn-sm">Payments</a>
-                            <a href="{{ route('billings.show', $billing->id) }}" target="_blank" class="btn btn-secondary btn-sm">Print Invoice</a>
-                            <form action="{{ route('billings.destroy', $billing->id) }}" method="POST" style="display:inline-block;">
+                            <a href="{{ route('billings.edit', $billing->id ?? 1000) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{ route('payments.index', $billing->id ?? 1000) }}" class="btn btn-info btn-sm">Payments</a>
+                            <a href="{{ route('billings.show', $billing->id ?? 1000) }}" target="_blank" class="btn btn-secondary btn-sm">Print Invoice</a>
+                            <form action="{{ route('billings.destroy', $billing->id ?? 1000) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
