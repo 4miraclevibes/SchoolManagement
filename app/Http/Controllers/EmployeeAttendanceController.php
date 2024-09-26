@@ -41,12 +41,13 @@ class EmployeeAttendanceController extends Controller
         return redirect()->route('employee-attendances.index')->with('success', 'Presensi berhasil dibuat');
     }
 
-    public function edit(EmployeeAttendance $employeeAttendance)
+    public function edit($id)
     {
+        $employeeAttendance = EmployeeAttendance::find($id);
         return view('pages.employee_attendances.edit', compact('employeeAttendance'));
     }
 
-    public function update(Request $request, EmployeeAttendance $employeeAttendance)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required',
@@ -55,6 +56,7 @@ class EmployeeAttendanceController extends Controller
         ]);
 
         $data = $request->all();
+        $employeeAttendance = EmployeeAttendance::find($id);
         if ($request->hasFile('attendance_image')) {
             $data['attendance_image'] = $request->file('attendance_image')->store('attendance_images', 'public');
             Storage::delete($employeeAttendance->attendance_image);
@@ -63,8 +65,9 @@ class EmployeeAttendanceController extends Controller
         return redirect()->route('employee-attendances.index')->with('success', 'Presensi berhasil diubah');
     }
 
-    public function destroy(EmployeeAttendance $employeeAttendance)
+    public function destroy($id)
     {
+        $employeeAttendance = EmployeeAttendance::find($id);
         Storage::delete($employeeAttendance->attendance_image);
         $employeeAttendance->delete();
         return redirect()->route('employee-attendances.index')->with('success', 'Presensi berhasil dihapus');
