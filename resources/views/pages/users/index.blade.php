@@ -24,23 +24,23 @@
         <tbody>
           @foreach ($users as $user)
           <tr>
-            <th scope="row">{{ $user->id }}</th>
+            <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->role->name }}</td>
             @if (Auth::user()->role->name == 'admin')
               <td>
-                <a href="{{ route('users.edit', $loop->iteration) }}" class="btn btn-warning btn-sm">Edit</a>
-                <form action="{{ route('users.destroy', $loop->iteration) }}" method="POST" style="display:inline-block;">
+                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline-block;">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                 </form>
-                <a href="{{ route('users.billing', $loop->iteration) }}" class="btn btn-primary btn-sm">Billing</a>
+                <a href="{{ route('users.billing', $user->id) }}" class="btn btn-primary btn-sm">Billing</a>
               </td>
             @else
               <td>
-                <a href="{{ route('users.billing', $loop->iteration) }}" class="btn btn-primary btn-sm">Billing</a>
+                <a href="{{ route('users.billing', $user->id) }}" class="btn btn-primary btn-sm">Billing</a>
               </td>
             @endif
           </tr>

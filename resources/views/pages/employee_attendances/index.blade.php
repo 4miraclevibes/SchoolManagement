@@ -28,7 +28,7 @@
                 <tbody>
                     @foreach ($employeeAttendances as $employeeAttendance)
                     <tr>
-                        <th scope="row">{{ $employeeAttendance->id }}</th>
+                        <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $employeeAttendance->created_at->format('d F Y h:i') }}</td>
                         <td>{{ $employeeAttendance->user->name }}</td>
                         <td>{{ $employeeAttendance->name }}</td>
@@ -36,8 +36,8 @@
                         <td><a href="{{ Storage::url($employeeAttendance->attendance_image) }}" target="_blank">View</a></td>
                         @if (Auth::user()->role->name == 'admin')
                         <td>
-                            <a href="{{ route('employee-attendances.edit', $loop->iteration) }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ route('employee-attendances.destroy', $loop->iteration) }}" method="POST" style="display:inline-block;">
+                            <a href="{{ route('employee-attendances.edit', $employeeAttendance->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('employee-attendances.destroy', $employeeAttendance->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
