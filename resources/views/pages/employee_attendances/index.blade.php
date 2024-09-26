@@ -28,7 +28,7 @@
                 <tbody>
                     @foreach ($employeeAttendances as $employeeAttendance)
                     <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
+                        <th scope="row">{{ $employeeAttendance->id }}</th>
                         <td>{{ $employeeAttendance->created_at->format('d F Y h:i') }}</td>
                         <td>{{ $employeeAttendance->user->name }}</td>
                         <td>{{ $employeeAttendance->name }}</td>
