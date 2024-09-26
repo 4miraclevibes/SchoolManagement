@@ -36,7 +36,7 @@
                         <td><a href="{{ Storage::url($employeeAttendance->attendance_image) }}" target="_blank">View</a></td>
                         @if (Auth::user()->role->name == 'admin')
                         <td>
-                            <a href="{{ route('employee-attendances.edit', $employeeAttendance->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{ route('employee-attendances.edit', ['id' => $employeeAttendance->id]) }}" class="btn btn-warning btn-sm">Edit</a>
                             <form action="{{ route('employee-attendances.destroy', $employeeAttendance->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
