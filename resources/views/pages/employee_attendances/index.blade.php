@@ -20,9 +20,9 @@
                         <th class="text-white">Nama Pegawai</th>
                         <th class="text-white">Deskripsi</th>
                         <th class="text-white">Foto Presensi</th>
-                        {{-- @if (Auth::user()->role->name == 'admin')
+                        @if (Auth::user()->role->name == 'admin')
                         <th class="text-white">Actions</th>
-                        @endif --}}
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +34,7 @@
                         <td>{{ $employeeAttendance->name }}</td>
                         <td>{{ $employeeAttendance->description }}</td>
                         <td><a href="{{ Storage::url($employeeAttendance->attendance_image) }}" target="_blank">View</a></td>
-                        {{-- @if (Auth::user()->role->name == 'admin')
+                        @if (Auth::user()->role->name == 'admin')
                         <td>
                             <a href="{{ route('employee-attendances.edit', $employeeAttendance->id) }}" class="btn btn-warning btn-sm">Edit</a>
                             <form action="{{ route('employee-attendances.destroy', $employeeAttendance->id) }}" method="POST" style="display:inline-block;">
@@ -42,8 +42,8 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                             </form>
-                        </td> --}}
-                        {{-- @endif --}}
+                        </td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>
