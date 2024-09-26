@@ -16,6 +16,7 @@ class BillingController extends Controller
     public function index()
     {
         $billings = Billing::with('user', 'package', 'payments')->get();
+        dd(Billing::where('id', null)->get());
         return view('pages.billings.index', compact('billings'));
     }
 
