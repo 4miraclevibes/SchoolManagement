@@ -37,11 +37,11 @@
                         @if (Auth::user()->role->name == 'admin')
                         <td>
                             {{-- <a href="{{ route('employee-attendances.edit', $employeeAttendance->id) }}" class="btn btn-warning btn-sm">Edit</a> --}}
-                            <form action="{{ route('employee-attendances.destroy', $employeeAttendance->id) }}" method="POST" style="display:inline-block;">
+                            {{-- <form action="{{ route('employee-attendances.destroy', $employeeAttendance->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                            </form>
+                            </form> --}}
                         </td>
                         @endif
                     </tr>
