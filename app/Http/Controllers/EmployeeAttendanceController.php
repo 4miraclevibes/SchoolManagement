@@ -16,6 +16,7 @@ class EmployeeAttendanceController extends Controller
         }else{
             $employeeAttendances = EmployeeAttendance::where('user_id', Auth::user()->id)->get();
         }
+        dd($employeeAttendances);
         return view('pages.employee_attendances.index', compact('employeeAttendances'));
     }
 
