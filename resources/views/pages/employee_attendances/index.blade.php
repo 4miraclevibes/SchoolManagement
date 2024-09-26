@@ -36,8 +36,8 @@
                         <td><a href="{{ Storage::url($employeeAttendance->attendance_image) }}" target="_blank">View</a></td>
                         @if (Auth::user()->role->name == 'admin')
                         <td>
-                            <a href="{{ route('employee-attendances.edit', $employeeAttendance) }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ route('employee-attendances.destroy', $employeeAttendance) }}" method="POST" style="display:inline-block;">
+                            <a href="{{ route('employee-attendances.edit', $loop->iteration) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('employee-attendances.destroy', $loop->iteration) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
