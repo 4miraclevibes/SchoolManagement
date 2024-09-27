@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('package_id')->constrained('packages')->onDelete('cascade');
             $table->foreignId('billing_id');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->decimal('amount', 8, 2);
+            $table->decimal('amount', 14, 2);
             $table->date('payment_date');
             $table->enum('type', ['book', 'registration', 'tuition fee']);
             $table->string('status')->default('pending'); // pending, completed, failed
