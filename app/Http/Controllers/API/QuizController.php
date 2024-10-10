@@ -10,7 +10,10 @@ class QuizController extends Controller
 {
     public function index()
     {
-        $quizzes = Quiz::all();
-        return response()->json($quizzes);
+        $quizzes = Quiz::with('quizAnswers')->get();
+        return response()->json([
+            'message' => 'Success',
+            'data' => $quizzes
+        ], 200);
     }
 }
