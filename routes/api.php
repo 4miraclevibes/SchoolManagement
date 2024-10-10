@@ -9,6 +9,7 @@ use App\Http\Controllers\API\SubjectController;
 use App\Http\Controllers\API\ScheduleController;
 use App\Http\Controllers\API\BillingController;
 use App\Http\Controllers\API\StudentController;
+use App\Http\Controllers\API\QuizController;
 
 Route::post('/login', [UserController::class, 'login']);
 
@@ -24,6 +25,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/classrooms', [ClassRoomController::class, 'index']);
     Route::get('/subjects', [SubjectController::class, 'index']);
     Route::get('/schedules', [ScheduleController::class, 'index']);
+    Route::get('/quizzes', [QuizController::class, 'index']);
     Route::get('/billings', [BillingController::class, 'index']);
     Route::get('/students', [StudentController::class, 'index']);
     Route::put('/student/{id}', [StudentController::class, 'update']);

@@ -24,11 +24,9 @@ class ClassRoomController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'schedule' => 'required|string|max:255',
-            'teacher_id' => 'required|exists:teachers,id',
         ]);
 
-        ClassRoom::create($request->only('name', 'schedule', 'teacher_id'));
+        ClassRoom::create($request->only('name'));
 
         return redirect()->route('class_rooms.index')
                          ->with('success', 'Class Room created successfully.');

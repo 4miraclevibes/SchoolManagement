@@ -30,7 +30,7 @@
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $schedule->classRoom->name }}</td>
                         <td>{{ $schedule->subject->name }} - {{ $schedule->subject->package->name }} - {{ $schedule->subject->package->type }} {{ $schedule->subject->package->level == $schedule->subject->package->name ? '' : '- ' . $schedule->subject->package->level }}</td>
-                        <td>{{ $loop->iteration }}{{ $schedule->teacher->name }}</td>
+                        <td>{{ $schedule->teacher->user->name }}</td>
                         <td>{{ $schedule->date }}</td>
                         <td>{{ $schedule->start_time }}</td>
                         <td>{{ $schedule->end_time }}</td>

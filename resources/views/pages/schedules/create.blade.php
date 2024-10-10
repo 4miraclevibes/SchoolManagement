@@ -28,7 +28,7 @@
                     <label for="teacher_id" class="form-label">Teacher</label>
                     <select class="form-control" id="teacher_id" name="teacher_id" required>
                         @foreach($teachers as $teacher)
-                            <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
+                            <option value="{{ $teacher->id }}">{{ $teacher->user->name }}</option>
                         @endforeach
                     </select>
                 </div>

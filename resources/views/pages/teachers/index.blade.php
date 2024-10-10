@@ -26,7 +26,7 @@
                     @foreach ($teachers as $teacher)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $teacher->name }}</td>
+                        <td>{{ $teacher->user->name }}</td>
                         <td>{{ $teacher->address }}</td>
                         <td>{{ $teacher->phone }}</td>
                         <td>{{ $teacher->email }}</td>
