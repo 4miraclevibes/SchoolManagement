@@ -10,7 +10,7 @@ class ScheduleController extends Controller
 {
     public function index()
     {
-        $schedules = Schedule::with(['classroom', 'subject', 'teacher', 'subject.subjectQuiz.quiz'])->get();
+        $schedules = Schedule::with(['classroom', 'subject', 'teacher', 'subject.subjectQuiz.quiz', 'subject.subjectQuiz.quiz.quizAnswers'])->get();
         return response()->json([
             'message' => 'Schedules fetched successfully',
             'schedules' => $schedules
