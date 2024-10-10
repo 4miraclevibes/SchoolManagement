@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('subject_quizzes', function (Blueprint $table) {
             $table->id();
-            // Pastikan baris berikut sudah ada dan benar
             $table->foreignId('subject_id')->constrained('subjects')->onDelete('cascade');
-            $table->foreignId('quiz_id')->constrained('quizzes')->onDelete('cascade');
+            $table->foreignId('quizes_id')->constrained('quizes')->onDelete('cascade');
             $table->timestamps();
         });
     }
