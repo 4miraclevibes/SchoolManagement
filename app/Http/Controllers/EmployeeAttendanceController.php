@@ -33,7 +33,7 @@ class EmployeeAttendanceController extends Controller
         ]);
 
         $data = $request->all();
-        $data['user_id'] = auth()->user()->id;
+        $data['user_id'] = Auth::user()->id;
         if ($request->hasFile('attendance_image')) {
             $data['attendance_image'] = $request->file('attendance_image')->store('attendance_images', 'public');
         }
