@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('score_details', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('score_id')->constrained('scores');
+            $table->string('name');
+            $table->integer('score');
             $table->timestamps();
         });
     }

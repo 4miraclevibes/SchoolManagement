@@ -17,6 +17,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\StudentReportController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ScoreController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -152,7 +153,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/subjects/{subject}/quiz', [SubjectController::class, 'addQuiz'])->name('subjects.quiz.index');
     Route::post('/subjects/{subject}/quiz/{quiz}/assign', [SubjectController::class, 'assignQuiz'])->name('subjects.quiz.assign');
     Route::delete('/subjects/{subject}/quiz/{quiz}/remove', [SubjectController::class, 'removeQuiz'])->name('subjects.quiz.remove');
-    
+
+    // Score routes
+    Route::get('/subjects/{subject}/scores', [ScoreController::class, 'index'])->name('subjects.scores.index');
+    Route::get('/subjects/{subject}/scores/create', [ScoreController::class, 'create'])->name('subjects.scores.create');
+    Route::post('/subjects/{subject}/scores', [ScoreController::class, 'store'])->name('subjects.scores.store');
+    Route::get('/subjects/scores/{score}/edit', [ScoreController::class, 'edit'])->name('subjects.scores.edit');
+    Route::put('/subjects/scores/{score}', [ScoreController::class, 'update'])->name('subjects.scores.update');
+    Route::delete('/subjects/scores/{score}', [ScoreController::class, 'destroy'])->name('subjects.scores.destroy');
 });
 
 

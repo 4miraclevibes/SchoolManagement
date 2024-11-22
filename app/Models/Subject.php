@@ -27,4 +27,19 @@ class Subject extends Model
     {
         return $this->belongsToMany(Quiz::class, 'subject_quizzes');
     }
+    public function scores()
+    {
+        return $this->hasMany(Score::class);
+    }
+    public function students()
+    {
+        return $this->hasManyThrough(
+            Student::class,
+            StudentPackage::class,
+            'package_id', // Foreign key di student_packages
+            'id', // Foreign key di students
+            'package_id', // Local key di subjects
+            'student_id' // Local key di student_packages
+        );
+    }
 }

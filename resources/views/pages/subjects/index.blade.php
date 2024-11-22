@@ -31,6 +31,7 @@
                         <td>
                             <a href="{{ route('subjects.edit', $subject->id) }}" class="btn btn-warning btn-sm">Edit</a>
                             <a href="{{ route('subjects.quiz.index', $subject->id) }}" class="btn btn-info btn-sm">Quiz</a>
+                            <a href="{{ route('subjects.scores.index', $subject->id) }}" class="btn btn-success btn-sm">Score</a>
                             <form action="{{ route('subjects.destroy', $subject->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')

@@ -19,4 +19,12 @@ class Score extends Model
     {
         return $this->belongsTo(Subject::class);
     }
+    public function scoreDetails()
+    {
+        return $this->hasMany(ScoreDetail::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
